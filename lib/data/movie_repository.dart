@@ -20,7 +20,7 @@ class FakeRatingsRepository implements MovieRepository {
 
         // Simulate some network error
         if (random.nextBool()) {
-          throw NetworkError();
+          throw NetworkException();
         }
 
         // Since we're inside a fake repository, we need to cache the ratings
@@ -38,4 +38,4 @@ class FakeRatingsRepository implements MovieRepository {
   }
 }
 
-class NetworkError extends Error {}
+class NetworkException extends Error {}
