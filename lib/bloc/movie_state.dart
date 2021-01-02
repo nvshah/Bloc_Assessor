@@ -1,8 +1,8 @@
-part of 'movie_cubit.dart';
+part of 'movie_bloc.dart';
 
 @immutable
 abstract class MovieState {
-  const MovieState();
+  const MovieState(); // Need this inorder to support const constructore of Child classes to allow them to call parent constructor.
 }
 
 //No action has yet been taken by the user & We should display this at initial UI
@@ -10,11 +10,11 @@ class MovieInitial extends MovieState {
   const MovieInitial();
 }
 
-class MovieLoading extends MovieState{
+class MovieLoading extends MovieState {
   const MovieLoading();
 }
 
-class MovieLoaded extends MovieState{
+class MovieLoaded extends MovieState {
   final Movie movie;
   const MovieLoaded(this.movie);
 
@@ -29,11 +29,11 @@ class MovieLoaded extends MovieState{
   int get hashCode => movie.hashCode;
 }
 
-class MovieError extends MovieState{
+class MovieError extends MovieState {
   final String message;
   const MovieError(this.message);
 
-   @override
+  @override
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
 
